@@ -1,0 +1,169 @@
+[hero]
+title = "Ungdomsoen Rundtur"
+subtitle = "En interaktiv guidet tur pa Ungdomsoen med spor fra Middelgrundsfortet, plads til refleksioner og svar undervejs."
+duration = "Ca. 1 time"
+location = "Ungdomsoen"
+
+[[hero.facts]]
+label = "Bygget"
+value = "1894"
+
+[[hero.facts]]
+label = "Areal"
+value = "70.000 m2"
+
+[[hero.facts]]
+label = "Underjordiske gange"
+value = "2,5 km"
+
+[[sections]]
+id = "kajen"
+number = "01"
+title = "Kajen - Velkomst"
+duration = "Ca. 5 min"
+lead = "Velkommen til Ungdomsoen og den gamle ankomst til Middelgrundsfortet."
+points = [
+  "Velkommen til Ungdomsoen.",
+  "Vi star pa det gamle Middelgrundsfort.",
+  "Fortet blev bygget i 1894.",
+  "Det blev bygget som et militaert soefort til beskyttelse af Koebenhavn.",
+  "I dag er det blevet til Ungdomsoen.",
+  "Ungdomsoen er et sted for unge, faellesskaber, projekter, arrangementer og nye ideer."
+]
+questions = [
+  "Er der nogen, der har vaeret her foer?",
+  "Hvad tror I, oeen oprindeligt blev brugt til?"
+]
+fact_title = "Fun fact"
+facts = [
+  "Hele omraadet er omkring 70.000 m2.",
+  "Under jorden findes omkring 2,5 km gange."
+]
+
+[[sections]]
+id = "udsigten"
+number = "02"
+title = "Op paa oeen - Udsigten"
+duration = "Ca. 10 min"
+lead = "Udsigten forklarer, hvorfor placeringen var saa vigtig for forsvaret af Koebenhavn."
+points = [
+  "Kig ind mod Koebenhavn og ud over Oeresund.",
+  "Placeringen var selvfoelgelig vigtig, da det var et militaerfort.",
+  "Herfra kunne man holde oeje med omraadet omkring indsejlingen til Koebenhavn.",
+  "Det sjove er, at naar man gaar rundt ovenpaa, ligner det mange steder bare en groen og bakket oe.",
+  "Men en stor del af fortet gemmer sig under os."
+]
+questions = [
+  "Hvor meget tror I egentlig ligger under jorden?",
+  "Ville I have lyst til at arbejde eller bo herude om vinteren?"
+]
+transition = "Nu skal vi se nogle af sporene fra dengang, det faktisk var et militaerfort."
+
+[[sections]]
+id = "amfiteater"
+number = "03"
+title = "Kanonstillinger - Amfiteater"
+duration = "Ca. 10 min"
+lead = "Her bliver det tydeligt, hvordan et gammelt forsvarsanlaeg er blevet forvandlet."
+points = [
+  "Rundt paa oeen kan man stadig se de gamle kanonstillinger.",
+  "De fortaeller meget tydeligt, hvad stedet oprindeligt blev bygget til.",
+  "Det nuvaerende amfiteater er faktisk bygget i den stoerste tilbagevaerende kanonstilling.",
+  "I dag kan der sidde omkring 200 mennesker her.",
+  "Det bruges blandt andet til samlinger, workshops og lejrbaal."
+]
+highlight_title = "God pointe"
+highlights = [
+  "Det er et godt eksempel paa hele ideen med Ungdomsoen.",
+  "Et sted, der engang var bygget til militaer og forsvar, bliver nu brugt til faellesskab, oplevelser og unge mennesker."
+]
+questions = [
+  "Hvad synes I om, at man genbruger et gammelt militaeranlaeg paa den maade?"
+]
+
+[[sections]]
+id = "gangene"
+number = "04"
+title = "Ned i fortet - Gangene"
+duration = "Ca. 15 min"
+lead = "Under jorden fornemmer man bedst, hvordan fortet fungerede som sit eget lille samfund."
+points = [
+  "Nu gaar vi ned i selve fortet.",
+  "Der er omkring 2,5 kilometer underjordiske gange paa oeen.",
+  "Proev at forestille jer stedet, da det var fyldt med soldater.",
+  "De skulle baade arbejde, spise, sove og traene herude.",
+  "Fortet fungerede derfor naesten som sit eget lille samfund."
+]
+highlight_title = "Mens vi gaar"
+highlights = [
+  "Laeg maerke til de tykke vaegge.",
+  "Laeg maerke til temperaturen og lyden herinde.",
+  "Forestil jer at gaa rundt her uden moderne belysning og de faciliteter, vi har i dag."
+]
+fact_title = "Ved Raketvaerkstedet"
+facts = [
+  "Her kan man stadig se fysiske spor fra tiden, hvor oeen var en del af Danmarks forsvar.",
+  "I dag bruges rummet til arrangementer og aktiviteter."
+]
+questions = [
+  "Hvem tror, de kunne finde vej rundt herinde alene?",
+  "Hvem ville vaere faret vild efter fem minutter?"
+]
+
+[[sections]]
+id = "spisesale"
+number = "05"
+title = "Spisesale - Gymnastiksal"
+duration = "Ca. 10 min"
+lead = "Nogle rum bruges stadig til noget, der minder om deres oprindelige funktion."
+points = [
+  "Der findes fire spisesale.",
+  "Det interessante er, at de ogsaa blev brugt som spisesale dengang soldaterne var her.",
+  "Saa naar man sidder her i dag, bruger man faktisk rummet til noget af det samme som for mange aar siden.",
+  "Den store gymnastiksal ligger dybt inde i fortet.",
+  "Her foregik en del af soldaternes fysiske traening.",
+  "I dag bruges salen blandt andet til stoerre samlinger og aktiviteter."
+]
+highlight_title = "Pointen"
+highlights = [
+  "Mange af rummene har faaet nyt liv.",
+  "Man har bevaret foelelsen af det gamle fort, samtidig med at rummene bliver brugt paa helt nye maader."
+]
+
+[[sections]]
+id = "i-dag"
+number = "06"
+title = "Ungdomsoen i dag"
+duration = "Ca. 10 min"
+lead = "I dag handler oeen om unge, faellesskab og muligheden for at skabe noget sammen."
+points = [
+  "I dag handler oeen ikke laengere om militaer og forsvar.",
+  "Den handler isaer om unge, faellesskab og muligheder.",
+  "Ungdomsoen beskriver sig selv som en platform for oplevelser, laering og faellesskab.",
+  "Unge kan vaere med til at udvikle projekter og arrangementer paa oeen.",
+  "Hvert aar er unge ogsaa med til at udvikle og drive livet paa det gamle soefort."
+]
+fact_title = "Der foregaar blandt andet"
+facts = [
+  "arrangementer",
+  "workshops",
+  "lejre",
+  "aktiviteter",
+  "undervisning",
+  "faellesskaber",
+  "projekter skabt af unge"
+]
+highlight_title = "Det saerlige ved stedet"
+highlights = [
+  "Man har taget et gammelt militaerfort og givet det et helt andet formaal.",
+  "Fra et sted bygget til at forsvare sig mod andre til et sted, der proever at bringe mennesker sammen."
+]
+
+[closing]
+title = "Afslutning"
+summary = [
+  "Saa det var den korte tur rundt paa Ungdomsoen.",
+  "I har nu baade set lidt af det gamle Middelgrundsfort og faaet et indblik i, hvad oeen bliver brugt til i dag."
+]
+final_question = "Hvis I fik hele Ungdomsoen til raadighed i en uge og maatte lave lige praecis det projekt eller arrangement, I havde lyst til, hvad ville I saa lave herude?"
+thanks = "Tak fordi I ville med rundt."

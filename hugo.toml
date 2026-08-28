@@ -1,0 +1,12 @@
+baseURL = '/'
+locale = 'da'
+title = 'Ungdomsoen Rundtur'
+disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', 'robotsTXT']
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+description = 'Interaktiv guidet tur paa Ungdomsoen.'

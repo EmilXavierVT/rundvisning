@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Params.description }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+  </head>
+  <body>
+    {{ $tour := hugo.Data.tour }}
+    <main>
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow">Guidet tur</p>
+          <h1>{{ $tour.hero.title }}</h1>
+          <p class="hero-text">{{ $tour.hero.subtitle }}</p>
+          <div class="hero-meta">
+            <span>{{ $tour.hero.duration }}</span>
+            <span>{{ $tour.hero.location }}</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <p class="card-label">Praktisk</p>
+          <ul class="fact-grid">
+            {{ range $tour.hero.facts }}
+              <li>
+                <span>{{ .label }}</span>
+                <strong>{{ .value }}</strong>
+              </li>
+            {{ end }}
+          </ul>
+          <p class="card-note">Svar gemmes kun i browseren paa den enhed, gaesten bruger.</p>
+        </div>
+      </section>
+
+      <section class="intro shell">
+        <div>
+          <p class="eyebrow">Om turen</p>
+          <h2>Historie, udsigt og refleksioner undervejs</h2>
+        </div>
+        <div class="intro-actions">
+          <p>Dine gaester kan skrive egne svar under hvert stop. Til sidst kan de hente alle svar som en tekstfil.</p>
+          <div class="button-row">
+            <button class="button button-primary" type="button" data-action="download">Download svar</button>
+            <button class="button button-secondary" type="button" data-action="reset">Nulstil svar</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="timeline shell">
+        {{ range $section := $tour.sections }}
+          <article class="stop" id="{{ $section.id }}">
+            <div class="stop-head">
+              <p class="stop-number">{{ $section.number }}</p>
+              <div>
+                <p class="eyebrow">{{ $section.duration }}</p>
+                <h2>{{ $section.title }}</h2>
+                <p class="lead">{{ $section.lead }}</p>
+              </div>
+            </div>
+
+            <div class="stop-grid">
+              <div class="panel panel-story">
+                <h3>Fortael</h3>
+                <ul>
+                  {{ range $section.points }}
+                    <li>{{ . }}</li>
+                  {{ end }}
+                </ul>
+
+                {{ with $section.transition }}
+                  <p class="transition">{{ . }}</p>
+                {{ end }}
+              </div>
+
+              <div class="panel panel-interaction">
+                {{ with $section.highlight_title }}
+                  <h3>{{ . }}</h3>
+                  <ul class="accent-list">
+                    {{ range $section.highlights }}
+                      <li>{{ . }}</li>
+                    {{ end }}
+                  </ul>
+                {{ end }}
+
+                {{ with $section.fact_title }}
+                  <h3>{{ . }}</h3>
+                  <ul class="tag-list">
+                    {{ range $section.facts }}
+                      <li>{{ . }}</li>
+                    {{ end }}
+                  </ul>
+                {{ end }}
+
+                {{ with $section.questions }}
+                  <div class="question-block">
+                    <h3>Sporg gruppen</h3>
+                    {{ range $index, $question := . }}
+                      {{ $fieldId := printf "%s-%d" $section.id $index }}
+                      <label class="question" for="{{ $fieldId }}">
+                        <span>{{ $question }}</span>
+                        <textarea id="{{ $fieldId }}" rows="3" placeholder="Skriv gruppens svar eller dine egne tanker..." data-question="{{ $fieldId }}"></textarea>
+                      </label>
+                    {{ end }}
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+          </article>
+        {{ end }}
+      </section>
+
+      <section class="closing shell">
+        <div class="closing-card">
+          <p class="eyebrow">{{ $tour.closing.title }}</p>
+          <h2>Tak for turen</h2>
+          {{ range $tour.closing.summary }}
+            <p>{{ . }}</p>
+          {{ end }}
+          <label class="question question-final" for="final-question">
+            <span>{{ $tour.closing.final_question }}</span>
+            <textarea id="final-question" rows="5" placeholder="Hvis I havde oeen i en uge, hvad ville I saa skabe herude?" data-question="final-question"></textarea>
+          </label>
+          <div class="button-row">
+            <button class="button button-primary" type="button" data-action="download">Download svar</button>
+            <button class="button button-secondary" type="button" data-action="reset">Nulstil svar</button>
+          </div>
+          <p class="thanks">{{ $tour.closing.thanks }}</p>
+        </div>
+      </section>
+    </main>
+    <script src="{{ "js/site.js" | relURL }}"></script>
+  </body>
+  </html>
