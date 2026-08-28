@@ -1,6 +1,6 @@
 baseURL = '/'
 locale = 'da'
-title = 'Ungdomsoen Rundtur'
+title = 'Ungdomsøen Rundtur'
 disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', 'robotsTXT']
 
 [markup]
@@ -9,4 +9,4 @@ disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', 'robotsTXT']
       unsafe = true
 
 [params]
-description = 'Interaktiv guidet tur paa Ungdomsoen.'
+description = 'Interaktiv guidet tur på Ungdomsøen.'

@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
     {{ $tour := hugo.Data.tour }}
@@ -33,7 +34,7 @@
               </li>
             {{ end }}
           </ul>
-          <p class="card-note">Svar gemmes kun i browseren paa den enhed, gaesten bruger.</p>
+          <p class="card-note">Delte svar vises for alle, der bruger samme turkode.</p>
         </div>
       </section>
 
@@ -43,7 +44,19 @@
           <h2>Historie, udsigt og refleksioner undervejs</h2>
         </div>
         <div class="intro-actions">
-          <p>Dine gaester kan skrive egne svar under hvert stop. Til sidst kan de hente alle svar som en tekstfil.</p>
+          <p>Dine gæster kan skrive svar anonymt, dele dem med gruppen og se hinandens refleksioner live under hvert stop.</p>
+          <div class="group-setup" data-group-setup>
+            <label class="group-field" for="tour-code">
+              <span>Turkode</span>
+              <input id="tour-code" type="text" placeholder="f.eks. ungdomsøen-3a" data-tour-code>
+            </label>
+            <div class="button-row">
+              <button class="button button-primary" type="button" data-action="save-tour-code">Brug turkode</button>
+              <button class="button button-secondary" type="button" data-action="clear-tour-code">Fjern turkode</button>
+            </div>
+            <p class="group-status" data-group-status>Vælg en turkode, så gruppen kan se de samme svar.</p>
+            <p class="group-help">Alle med samme kode ser de samme anonyme svar. Koden kan være navnet på holdet eller dagens tur.</p>
+          </div>
           <div class="button-row">
             <button class="button button-primary" type="button" data-action="download">Download svar</button>
             <button class="button button-secondary" type="button" data-action="reset">Nulstil svar</button>
@@ -65,7 +78,7 @@
 
             <div class="stop-grid">
               <div class="panel panel-story">
-                <h3>Fortael</h3>
+                <h3>Fortæl</h3>
                 <ul>
                   {{ range $section.points }}
                     <li>{{ . }}</li>
@@ -98,13 +111,28 @@
 
                 {{ with $section.questions }}
                   <div class="question-block">
-                    <h3>Sporg gruppen</h3>
+                    <h3>Spørg gruppen</h3>
                     {{ range $index, $question := . }}
                       {{ $fieldId := printf "%s-%d" $section.id $index }}
-                      <label class="question" for="{{ $fieldId }}">
-                        <span>{{ $question }}</span>
-                        <textarea id="{{ $fieldId }}" rows="3" placeholder="Skriv gruppens svar eller dine egne tanker..." data-question="{{ $fieldId }}"></textarea>
-                      </label>
+                      <div class="question-card" data-question-card>
+                        <label class="question" for="{{ $fieldId }}">
+                          <span>{{ $question }}</span>
+                          <textarea id="{{ $fieldId }}" rows="3" placeholder="Skriv gruppens svar eller dine egne tanker..." data-question="{{ $fieldId }}" data-question-label="{{ $question }}"></textarea>
+                        </label>
+                        <div class="question-actions">
+                          <button class="button button-primary button-small" type="button" data-action="share-answer" data-question-target="{{ $fieldId }}">Del med gruppen</button>
+                          <p class="question-status" data-question-status="{{ $fieldId }}">Kun gemt på denne enhed indtil du deler det.</p>
+                        </div>
+                        <div class="shared-answers" data-shared-answers="{{ $fieldId }}">
+                          <div class="shared-answers-head">
+                            <h4>Gruppens svar</h4>
+                            <span data-answer-count="{{ $fieldId }}">0 svar</span>
+                          </div>
+                          <div class="shared-answer-list" data-answer-list="{{ $fieldId }}">
+                            <p class="shared-empty">Ingen delte svar endnu.</p>
+                          </div>
+                        </div>
+                      </div>
                     {{ end }}
                   </div>
                 {{ end }}
@@ -121,10 +149,25 @@
           {{ range $tour.closing.summary }}
             <p>{{ . }}</p>
           {{ end }}
-          <label class="question question-final" for="final-question">
-            <span>{{ $tour.closing.final_question }}</span>
-            <textarea id="final-question" rows="5" placeholder="Hvis I havde oeen i en uge, hvad ville I saa skabe herude?" data-question="final-question"></textarea>
-          </label>
+          <div class="question-card question-final" data-question-card>
+            <label class="question" for="final-question">
+              <span>{{ $tour.closing.final_question }}</span>
+              <textarea id="final-question" rows="5" placeholder="Hvis I havde øen i en uge, hvad ville I så skabe herude?" data-question="final-question" data-question-label="{{ $tour.closing.final_question }}"></textarea>
+            </label>
+            <div class="question-actions">
+              <button class="button button-primary button-small" type="button" data-action="share-answer" data-question-target="final-question">Del med gruppen</button>
+              <p class="question-status" data-question-status="final-question">Kun gemt på denne enhed indtil du deler det.</p>
+            </div>
+            <div class="shared-answers" data-shared-answers="final-question">
+              <div class="shared-answers-head">
+                <h4>Gruppens svar</h4>
+                <span data-answer-count="final-question">0 svar</span>
+              </div>
+              <div class="shared-answer-list" data-answer-list="final-question">
+                <p class="shared-empty">Ingen delte svar endnu.</p>
+              </div>
+            </div>
+          </div>
           <div class="button-row">
             <button class="button button-primary" type="button" data-action="download">Download svar</button>
             <button class="button button-secondary" type="button" data-action="reset">Nulstil svar</button>
@@ -133,6 +176,7 @@
         </div>
       </section>
     </main>
+    <script src="{{ "js/supabase-config.js" | relURL }}"></script>
     <script src="{{ "js/site.js" | relURL }}"></script>
   </body>
   </html>

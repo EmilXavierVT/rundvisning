@@ -236,6 +236,59 @@ h3 {
   gap: 1rem;
 }
 
+.group-setup {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--line);
+}
+
+.group-field {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.group-field span,
+.group-help,
+.group-status,
+.question-status,
+.shared-answer-time,
+.shared-empty,
+.shared-answers-head span {
+  color: var(--muted);
+}
+
+.group-field span {
+  font-weight: 600;
+}
+
+.group-field input {
+  width: 100%;
+  border: 1px solid rgba(20, 54, 50, 0.14);
+  border-radius: 18px;
+  padding: 0.95rem 1rem;
+  font: inherit;
+  color: var(--text);
+  background: rgba(255, 250, 242, 0.92);
+}
+
+.group-field input:focus-visible {
+  outline: 2px solid rgba(234, 151, 63, 0.48);
+  outline-offset: 2px;
+}
+
+.group-status,
+.group-help,
+.question-status,
+.shared-empty,
+.shared-answer-time,
+.shared-answers-head span {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;
@@ -369,8 +422,69 @@ h3 {
   gap: 0.55rem;
 }
 
+.question-card {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.36);
+  border: 1px solid rgba(20, 54, 50, 0.08);
+}
+
 .question span {
   font-weight: 600;
+}
+
+.question-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.button-small {
+  padding: 0.72rem 0.95rem;
+  font-size: 0.95rem;
+}
+
+.shared-answers {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 0.25rem;
+}
+
+.shared-answers-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.shared-answers h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.shared-answer-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.shared-answer {
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  background: rgba(255, 250, 242, 0.9);
+  border: 1px solid rgba(20, 54, 50, 0.08);
+}
+
+.shared-answer p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.shared-answer p + p {
+  margin-top: 0.45rem;
 }
 
 textarea {
